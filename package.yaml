@@ -1,0 +1,56 @@
+name:                lens-playground
+version:             0.1.0.0
+github:              "cah6/lens-playground"
+license:             BSD3
+author:              "Christian Henry"
+maintainer:          "christian.henry92@gmail.com"
+copyright:           "Copyright (c) 2019 Christian Henry"
+
+default-extensions:
+- OverloadedStrings
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Unclassified
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/cah6/lens-playground#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- aeson
+- aeson-qq
+- lens
+- lens-aeson
+- text
+
+library:
+  source-dirs: src
+
+executables:
+  lens-playground-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lens-playground
+
+tests:
+  lens-playground-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - lens-playground
